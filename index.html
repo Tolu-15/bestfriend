@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Friend Day 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      height: 100vh; /* Full page height */
+      text-align: center;
+      padding: 0 20px;
+      background: url('https://i.imgur.com/qK9fK74.jpg') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      animation: slideIn 2s ease-out;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+    .scroll-btn {
+      padding: 10px 20px;
+      margin-top: 20px;
+      border: none;
+      background: #ff69b4;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      animation: bounce 2s infinite;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 40px 20px;
+      background: #fff;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .message-section {
+      padding: 40px 20px;
+      background: #fff0f5;
+      text-align: center;
+    }
+    .message-section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: #d63384;
+    }
+    .message-section p {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .music-player {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffdeeb;
+      font-size: 0.9rem;
+    }
+    .social-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #ff69b4;
+      color: white;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); }
+      to { transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Happy Best Friend Day 💖</h1>
+      <p>To my amazing bestie, Praise ✨</p>
+      <button class="scroll-btn" onclick="scrollAndPlay()">Scroll to Memories</button>
+    </div>
+  </header>
+
+  <section id="gallery" class="gallery">
+    <img src="IMG_20230805_162657_957~2.jpg" alt="Memory 1" />
+    <img src="IMG_20230805_162854_105~2.jpg" alt="Memory 2" />
+    <img src="IMG-20250104-WA0000~2.jpg" alt="Memory 3" />
+    <img src="b53e746351cb4b579ea4f8911f0702ea.jpg" alt="Memory 4" />
+  </section>
+
+  <section class="message-section">
+    <h2>A Note from Me 💌</h2>
+    <p>
+      Hey Praise! You’ve been the light in my darkest days and the joy in my best. Thank you for being my best friend, my rock, my laughter plug, and my forever gist partner. I appreciate you more than words can ever say. 🥺💖
+    </p>
+  </section>
+
+  <div class="music-player">
+    <audio id="bg-music" src="DOTTi_The_Deity_Ft_Simi_-_Forever_Sweet_Remix_.mp3" autoplay loop playsinline></audio>
+    <button onclick="toggleMusic()">Play/Pause Music 🎵</button>
+  </div>
+
+  <footer class="footer">
+    Made with 💖 by Toluwanimi
+    <br>
+    <a class="social-btn" href=" https://www.snapchat.com/add/t_dev18" target="_blank">Send Me a Message</a>
+  </footer>
+
+  <script>
+    const music = document.getElementById("bg-music");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      music.muted = false;
+      music.play().catch(err => {
+        console.log("Autoplay blocked: ", err);
+      });
+    });
+
+  
+    function scrollAndPlay() {
+     
+      document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+
+      music.muted = false;
+      music.play().catch(err => {
+        console.log("Still blocked: ", err);
+      });
+    }
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
+  
+</body>
+</html>

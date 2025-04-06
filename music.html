@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Music Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #111, #222);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .music-card {
+      background-color: #1e1e1e;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      width: 300px;
+    }
+
+    .album-art {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      animation: rotateArt 20s linear infinite;
+    }
+
+    @keyframes rotateArt {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    h2 {
+      margin: 10px 0 5px;
+    }
+
+    p {
+      margin: 0 0 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .controls button {
+      background: #ff4081;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 15px;
+      font-size: 18px;
+      cursor: pointer;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background: #ff70a6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="music-card">
+    <img src="album.jpg" alt="Album Art" class="album-art">
+    <h2>Forever (Sweet Remix)</h2>
+    <p>DOTTi The Deity ft Simi</p>
+
+    <div class="controls">
+      <button onclick="playMusic()">▶️</button>
+      <button onclick="pauseMusic()">⏸️</button>
+    </div>
+
+    <audio id="audio" loop>
+      <source src="DOTTi_The_Deity_Ft_Simi_-_Forever_Sweet_Remix_.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    const music = document.getElementById("audio");
+
+    function playMusic() {
+      music.play();
+    }
+
+    function pauseMusic() {
+      music.pause();
+    }
+
+    // Try autoplay on load
+    window.addEventListener("load", () => {
+      music.play().catch(() => {
+        document.addEventListener("click", () => music.play(), { once: true });
+      });
+    });
+  </script>
+
+</body>
+</html>
