@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap"
         rel="stylesheet">
 
-  
     <style>
         * {
             margin: 0;
@@ -264,31 +263,41 @@
         Made with 💖 by Toluwanimi<br>
         <a class="social-btn" href="https://www.snapchat.com/add/t_dev18" target="_blank">Send Me a Message</a>
     </footer>
+
     <script type="module">
-  
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
-  
-  const firebaseConfig = {
-    apiKey: "AIzaSyAiTIIT16SsCtRQ6WHbhYj78aVN3RTfG7k",
-    authDomain: "best-friend-day.firebaseapp.com",
-    projectId: "best-friend-day",
-    storageBucket: "best-friend-day.firebasestorage.app",
-    messagingSenderId: "40050570985",
-    appId: "1:40050570985:web:710afb060866a955982278",
-    measurementId: "G-6J9QW3ZLQE"
-  };
+        // Firebase Imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+        import { getDatabase, ref, push, set, onChildAdded, orderByChild, query } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
 
+        // Your Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyAiTIIT16SsCtRQ6WHbhYj78aVN3RTfG7k",
+            authDomain: "best-friend-day.firebaseapp.com",
+            projectId: "best-friend-day",
+            storageBucket: "best-friend-day.appspot.com",
+            messagingSenderId: "40050570985",
+            appId: "1:40050570985:web:710afb060866a955982278",
+            measurementId: "G-6J9QW3ZLQE",
+            databaseURL: "https://best-friend-day-default-rtdb.firebaseio.com"
+        };
 
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        // Make database available globally
+        window.database = database;
+        window.ref = ref;
+        window.push = push;
+        window.set = set;
+        window.onChildAdded = onChildAdded;
+        window.orderByChild = orderByChild;
+        window.query = query;
+    </script>
 
     <script>
-       
-
-    
-
         const music = document.getElementById("bg-music");
         let musicStarted = false;
 
@@ -328,8 +337,8 @@
                 return;
             }
 
-            const newMsgRef = database.ref('praiseMessages').push();
-            newMsgRef.set({
+            const newMsgRef = push(ref(database, 'praiseMessages'));
+            set(newMsgRef, {
                 message: msg,
                 timestamp: Date.now()
             }).then(() => {
@@ -341,8 +350,8 @@
         }
 
         function fetchMessages() {
-            const messagesRef = database.ref('praiseMessages');
-            messagesRef.orderByChild('timestamp').on('child_added', (snapshot) => {
+            const messagesRef = query(ref(database, 'praiseMessages'), orderByChild('timestamp'));
+            onChildAdded(messagesRef, (snapshot) => {
                 const msgData = snapshot.val();
                 const messageElement = document.createElement('div');
                 messageElement.classList.add('message');
@@ -353,8 +362,4 @@
     </script>
 
     <script>
-        alert('Happy International Best Friend Day 💖');
-    </script>
-</body>
-
-</html>
+        alert('Happy International Best Friend Day
