@@ -7,10 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap"
         rel="stylesheet">
 
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
-
+  
     <style>
         * {
             margin: 0;
@@ -267,20 +264,30 @@
         Made with 💖 by Toluwanimi<br>
         <a class="social-btn" href="https://www.snapchat.com/add/t_dev18" target="_blank">Send Me a Message</a>
     </footer>
+    <script type="module">
+  
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyAiTIIT16SsCtRQ6WHbhYj78aVN3RTfG7k",
+    authDomain: "best-friend-day.firebaseapp.com",
+    projectId: "best-friend-day",
+    storageBucket: "best-friend-day.firebasestorage.app",
+    messagingSenderId: "40050570985",
+    appId: "1:40050570985:web:710afb060866a955982278",
+    measurementId: "G-6J9QW3ZLQE"
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 
     <script>
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-            databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT_ID.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
+       
 
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
+    
 
         const music = document.getElementById("bg-music");
         let musicStarted = false;
