@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Best Friend Day 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+
   <style>
     * {
       margin: 0;
@@ -12,31 +19,31 @@
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
+
     body {
       background: linear-gradient(135deg, #ffe6f0, #fff0f5);
       color: #333;
       overflow-x: hidden;
     }
+
     header {
-      height: 100vh; /* Full page height */
+      height: 100vh;
       text-align: center;
       padding: 0 20px;
-      background: url('https://marketplace.canva.com/EAE3OT2pIDQ/1/0/1600w/canva-best-friends-card-x0EgDiX0Sdg.jpg');
+      background: url('https://images.pexels.com/photos/371285/pexels-photo-371285.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center/cover;
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       animation: fadeIn 2s ease-in-out;
     }
+
     header h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 3rem;
       animation: slideIn 2s ease-out;
     }
-    header p {
-      font-size: 1.2rem;
-      margin: 10px 0;
-    }
+
     .scroll-btn {
       padding: 10px 20px;
       margin-top: 20px;
@@ -48,6 +55,7 @@
       font-size: 1rem;
       animation: bounce 2s infinite;
     }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -55,40 +63,61 @@
       padding: 40px 20px;
       background: #fff;
     }
+
     .gallery img {
       width: 100%;
       border-radius: 15px;
       transition: transform 0.3s;
     }
+
     .gallery img:hover {
       transform: scale(1.05);
     }
+
     .message-section {
       padding: 40px 20px;
       background: #fff0f5;
       text-align: center;
     }
+
     .message-section h2 {
       font-family: 'Great Vibes', cursive;
       font-size: 2.5rem;
       color: #d63384;
     }
+
     .message-section p {
       max-width: 600px;
       margin: 20px auto;
       font-size: 1.1rem;
       line-height: 1.6;
     }
+
     .music-player {
       text-align: center;
       margin: 30px 0;
     }
+
+    .btn_player {
+      height: 200px;
+      width: 200px;
+      background-color: #ff69b4;
+    }
+
+    .omo {
+      height: 200px;
+      width: 200px;
+      border-radius: 1000px;
+      animation: rotate_image 5s linear infinite;
+    }
+
     .footer {
       text-align: center;
       padding: 20px;
       background: #ffdeeb;
       font-size: 0.9rem;
     }
+
     .social-btn {
       display: inline-block;
       margin-top: 10px;
@@ -99,21 +128,96 @@
       text-decoration: none;
     }
 
-    /* Animations */
+    /* New Styles for Praise's Message */
+    textarea {
+      width: 90%;
+      max-width: 600px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+
+    button.send-btn {
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      background: #d63384;
+      color: white;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #messages {
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .message {
+      background: #ffe6f0;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .message p {
+      font-size: 1.1rem;
+    }
+
+    .message small {
+      color: gray;
+      font-size: 0.8rem;
+    }
+
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
+
     @keyframes slideIn {
-      from { transform: translateY(-50px); }
-      to { transform: translateY(0); }
+      from {
+        transform: translateY(-50px);
+      }
+
+      to {
+        transform: translateY(0);
+      }
     }
+
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes rotate_image {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div>
@@ -127,28 +231,59 @@
     <img src="IMG_20230805_162657_957~2.jpg" alt="Memory 1" />
     <img src="IMG_20230805_162854_105~2.jpg" alt="Memory 2" />
     <img src="IMG-20250104-WA0000~2.jpg" alt="Memory 3" />
-    <img src="b53e746351cb4b579ea4f8911f0702ea.jpg" alt="Memory 4" />
+    <img src="Screenshot 2025-04-16 112329.png" alt="Memory 4" />
   </section>
 
   <section class="message-section">
     <h2>A Note from Me 💌</h2>
-    <p>
-      Hey Praise! You’ve been the light in my darkest days and the joy in my best. Thank you for being my best friend, my rock, my laughter plug, and my forever gist partner. I appreciate you more than words can ever say. 🥺💖
-    </p>
+    <p>🌍💖 <strong>Happy International Best Friend Day, Praise!</strong> 💖🌍</p>
+    <p>Today is a special day, and it's all about <strong>you</strong> — my best friend 👯‍♀️✨</p>
+    <p>From the random laughs 😂 to the deep convos 🧠💬, from the silent moments 🤫 to the loudest memories 🔊, you've
+      always been there.</p>
+    <p>Praise, you're one of the few people I can truly be myself around 😌💯. You've seen the good, the bad, and the
+      “what even is that?!” 😅🤣 — and still stayed ❤️</p>
+    <p>You make life more fun 🎉, more meaningful 🌈, and way less lonely 🤗.</p>
+    <p>Your support 🙌, your loyalty 🤝, your good vibes 🌟 — I don’t take any of it for granted 🙏💖</p>
+    <p>You're not just my friend, you’re a blessing 🕊️, a light 🌟, and someone I’m always thankful for 😇🫶</p>
+    <p>Thank you for the love 💞, the advice 🧏‍♀️, the hype 😎, and most importantly — thank you for being <em>you</em>
+      👑💐</p>
+    <p>No matter where life takes us 🛤️, I’ll always be in your corner 💪💙</p>
+    <p><strong>Happy Best Friend Day once again, Praise!</strong></p>
+    <p>You're truly amazing, and I’m proud to call you my best friend 🥹🌹</p>
+    <p style="margin-top: 30px;"><strong>– Toluwanimi 🧸💙</strong></p>
+
+    <h2>Leave Your Message, Praise 💬</h2>
+    <textarea id="praiseMsg" rows="5" placeholder="Type your message here..."></textarea><br>
+    <button class="send-btn" onclick="saveMessage()">Send Message 💖</button>
+
+    <div id="messages"></div>
   </section>
 
   <div class="music-player">
     <audio id="bg-music" src="DOTTi_The_Deity_Ft_Simi_-_Forever_Sweet_Remix_.mp3" autoplay loop playsinline></audio>
-    <button onclick="toggleMusic()">Play/Pause Music 🎵</button>
+    <button class="btn_player" onclick="toggleMusic()">Play/Pause Music 🎵</button>
+    <img class="omo" src="IMG_20230805_162657_957~2.jpg" alt="">
   </div>
 
   <footer class="footer">
-    Made with 💖 by Toluwanimi
-    <br>
-    <a class="social-btn" href=" https://www.snapchat.com/add/t_dev18" target="_blank">Send Me a Message</a>
+    Made with 💖 by Toluwanimi<br>
+    <a class="social-btn" href="https://www.snapchat.com/add/t_dev18" target="_blank">Send Me a Message</a>
   </footer>
 
   <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
     const music = document.getElementById("bg-music");
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -156,17 +291,13 @@
       music.play().catch(err => {
         console.log("Autoplay blocked: ", err);
       });
+      fetchMessages();
     });
 
-  
     function scrollAndPlay() {
-     
       document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-
       music.muted = false;
-      music.play().catch(err => {
-        console.log("Still blocked: ", err);
-      });
+      music.play().catch(err => console.log("Still blocked: ", err));
     }
 
     function toggleMusic() {
@@ -176,7 +307,41 @@
         music.pause();
       }
     }
+
+    function saveMessage() {
+      const msg = document.getElementById('praiseMsg').value;
+      if (msg.trim() === "") {
+        alert("Please type a message 📝");
+        return;
+      }
+
+      const newMsgRef = database.ref('praiseMessages').push();
+      newMsgRef.set({
+        message: msg,
+        timestamp: Date.now()
+      }).then(() => {
+        alert("Message sent 💌");
+        document.getElementById('praiseMsg').value = '';
+      }).catch((err) => {
+        console.error("Error saving message:", err);
+      });
+    }
+
+    function fetchMessages() {
+      const messagesRef = database.ref('praiseMessages');
+      messagesRef.orderByChild('timestamp').on('child_added', (snapshot) => {
+        const msgData = snapshot.val();
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        messageElement.innerHTML = `<p>${msgData.message}</p><small>Posted on: ${new Date(msgData.timestamp).toLocaleString()}</small>`;
+        document.getElementById('messages').appendChild(messageElement);
+      });
+    }
   </script>
-  
+
+  <script>
+    alert('Happy International Best Friend Day 💖');
+  </script>
 </body>
+
 </html>
