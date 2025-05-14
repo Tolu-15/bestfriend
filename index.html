@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest Best Friend | Happy Best Friend Day</title>
+    <meta name="description"
+        content="A special tribute to my amazing best friend Praise on International Best Friend Day">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e83e8c;
+            --secondary-color: #ff69b4;
+            --accent-color: #d63384;
+            --light-pink: #fff0f5;
+            --soft-pink: #ffe6f0;
+            --dark-text: #333;
+            --light-text: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--soft-pink), var(--light-pink));
+            color: var(--dark-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        header {
+            height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7') no-repeat center center/cover;
+            color: var(--light-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1.5s ease-out;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .scroll-btn {
+            padding: 12px 30px;
+            margin-top: 20px;
+            border: 2px solid var(--light-text);
+            background: transparent;
+            color: var(--light-text);
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+
+        .gallery-section {
+            padding: 80px 20px;
+            background: var(--light-text);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            aspect-ratio: 1/1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 15px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .message-section {
+            padding: 80px 20px;
+            background: var(--light-pink);
+            text-align: center;
+        }
+
+        .message-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light-text);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .message-container::before {
+            content: '💖';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 2rem;
+            background: var(--light-pink);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+        }
+
+        .message-container::after {
+            content: '💖';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 2rem;
+            background: var(--light-pink);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+        }
+
+        .message-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .message-text strong {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+
+        .interactive-section {
+            padding: 60px 20px;
+            background: var(--light-text);
+            text-align: center;
+        }
+
+        .message-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light-pink);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 150px;
+            transition: var(--transition);
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+        }
+
+        .send-btn {
+            padding: 12px 30px;
+            margin-top: 20px;
+            border: none;
+            background: var(--accent-color);
+            color: var(--light-text);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .send-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+        }
+
+        #messages {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .message {
+            background: var(--light-text);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .message::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 3rem;
+            color: var(--secondary-color);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .message p {
+            font-size: 1.1rem;
+            padding-left: 20px;
+        }
+
+        .message small {
+            color: #888;
+            font-size: 0.8rem;
+            display: block;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .music-section {
+            padding: 60px 20px;
+            background: var(--light-pink);
+            text-align: center;
+        }
+
+        .music-player {
+            max-width: 300px;
+            margin: 0 auto;
+            background: var(--light-text);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .album-art {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: 5px solid var(--light-text);
+            outline: 2px solid var(--secondary-color);
+        }
+
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .music-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            color: var(--light-text);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .music-btn:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .music-info {
+            margin-top: 15px;
+        }
+
+        .music-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .music-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--accent-color);
+            color: var(--light-text);
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-text);
+            color: var(--accent-color);
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rotating {
+            animation: rotate 10s linear infinite;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .message-container {
+                padding: 30px 20px;
+            }
+
+            .message-container::before,
+            .message-container::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Happy Best Friend Day</h1>
+            <p>To my dearest friend, Praise — a soul like no other</p>
+            <button class="scroll-btn" onclick="scrollToSection('gallery')">
+                <i class="fas fa-heart"></i> Our Beautiful Memories
+            </button>
+        </div>
+    </header>
+
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title">Our Journey Together</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="IMG_20230805_162657_957~2.jpg" alt="Praise and I laughing together">
+                <div class="gallery-caption">Laughter that echoes in my heart</div>
+            </div>
+            <div class="gallery-item">
+                <img src="IMG_20230805_162854_105~2.jpg" alt="Special moment with Praise">
+                <div class="gallery-caption">Moments I'll cherish forever</div>
+            </div>
+            <div class="gallery-item">
+                <img src="IMG-20250104-WA0000~2.jpg" alt="Adventure with Praise">
+                <div class="gallery-caption">Adventures with my favorite person</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Screenshot 2025-04-16 112329.png" alt="Sweet memory with Praise">
+                <div class="gallery-caption">Your smile brightens my world</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="message-section">
+        <div class="message-container">
+            <h2 class="section-title">My Heartfelt Letter</h2>
+            <div class="message-text">
+                <p>🌍💖 <strong>Happy International Best Friend Day, Praise!</strong> 💖🌍</p>
+                <p>Today is a special day, and it's all about <strong>you</strong> — my best friend 👯‍♀️✨</p>
+                <p>From the random laughs 😂 to the deep convos 🧠💬, from the silent moments 🤫 to the loudest memories
+                    🔊,
+                    you've always been there.</p>
+                <p>Praise, you're one of the few people I can truly be myself around 😌💯. You've seen the good, the
+                    bad, and
+                    the “what even is that?!” 😅🤣 — and still stayed ❤️</p>
+                <p>You make life more fun 🎉, more meaningful 🌈, and way less lonely 🤗.</p>
+                <p>Your support 🙌, your loyalty 🤝, your good vibes 🌟 — I don’t take any of it for granted 🙏💖</p>
+                <p>You're not just my friend, you’re a blessing 🕊️, a light 🌟, and someone I’m always thankful for
+                    😇🫶</p>
+                <p>Thank you for the love 💞, the advice 🧏‍♀️, the hype 😎, and most importantly — thank you for being
+                    <em>you</em> 👑💐
+                </p>
+                <p>No matter where life takes us 🛤️, I’ll always be in your corner 💪💙</p>
+                <p><strong>Happy Best Friend Day once again, Praise!</strong></p>
+                <p>You're truly amazing, and I’m proud to call you my best friend 🥹🌹</p>
+                <p style="margin-top: 30px;"><strong>– Toluwanimi 🧸💙</strong></p>
+            </div>
+
+            <div class="signature">With all my love,<br>Toluwanimi</div>
+        </div>
+    </section>
+
+    <section class="interactive-section">
+        <h2 class="section-title">Your Thoughts, Praise</h2>
+        <div class="message-form">
+            <p>I'd love to hear what's in your heart today. Leave me a message below:</p>
+            <textarea id="praiseMsg" placeholder="Type your heartfelt message here..."></textarea>
+            <button class="send-btn" onclick="saveMessage()">
+                <i class="fas fa-paper-plane"></i> Send Your Love
+            </button>
+
+            <div id="messages"></div>
+        </div>
+    </section>
+
+    <section class="music-section">
+        <h2 class="section-title">Our Friendship Anthem</h2>
+        <div class="music-player">
+            <img id="albumArt" src="IMG_20230805_162657_957~2.jpg" alt="Praise and I" class="album-art">
+            <div class="music-controls">
+                <button class="music-btn" onclick="togglePlay()">
+                    <i class="fas fa-play" id="playIcon"></i>
+                </button>
+                <button class="music-btn" onclick="toggleMute()">
+                    <i class="fas fa-volume-up" id="volumeIcon"></i>
+                </button>
+            </div>
+            <div class="music-info">
+                <h3>Forever Sweet</h3>
+                <p>DOTTi The Deity Ft. Simi (Remix)</p>
+            </div>
+            <audio id="bg-music" loop>
+                <source src="DOTTi_The_Deity_Ft_Simi_-_Forever_Sweet_Remix_.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created with <i class="fas fa-heart" style="color: #ffeb3b;"></i> by Toluwanimi</p>
+        <div class="social-links">
+            <a href="https://www.snapchat.com/add/t_dev18" class="social-link" target="_blank">
+                <i class="fab fa-snapchat-ghost"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p class="copyright">© 2023 | Happy Best Friend Day to the most amazing friend</p>
+    </footer>
+
+    <script type="module">
+        // Firebase Imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+        import { getDatabase, ref, push, set, onChildAdded, orderByChild, query } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyAiTIIT16SsCtRQ6WHbhYj78aVN3RTfG7k",
+            authDomain: "best-friend-day.firebaseapp.com",
+            projectId: "best-friend-day",
+            storageBucket: "best-friend-day.appspot.com",
+            messagingSenderId: "40050570985",
+            appId: "1:40050570985:web:710afb060866a955982278",
+            measurementId: "G-6J9QW3ZLQE",
+            databaseURL: "https://best-friend-day-default-rtdb.firebaseio.com"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        // Make database available globally
+        window.database = database;
+        window.ref = ref;
+        window.push = push;
+        window.set = set;
+        window.onChildAdded = onChildAdded;
+        window.orderByChild = orderByChild;
+        window.query = query;
+    </script>
+
+    <script>
+        // Music player functionality
+        const music = document.getElementById("bg-music");
+        const albumArt = document.getElementById("albumArt");
+        const playIcon = document.getElementById("playIcon");
+        const volumeIcon = document.getElementById("volumeIcon");
+        let musicStarted = false;
+
+        // Initialize music player
+        music.volume = 0.5; // Start at half volume to be gentle
+
+        function togglePlay() {
+            if (music.paused) {
+                music.play();
+                playIcon.classList.remove("fa-play");
+                playIcon.classList.add("fa-pause");
+                albumArt.classList.add("rotating");
+            } else {
+                music.pause();
+                playIcon.classList.remove("fa-pause");
+                playIcon.classList.add("fa-play");
+                albumArt.classList.remove("rotating");
+            }
+        }
+
+        function toggleMute() {
+            music.muted = !music.muted;
+            if (music.muted) {
+                volumeIcon.classList.remove("fa-volume-up");
+                volumeIcon.classList.add("fa-volume-mute");
+            } else {
+                volumeIcon.classList.remove("fa-volume-mute");
+                volumeIcon.classList.add("fa-volume-up");
+            }
+        }
+
+        function startMusic() {
+            if (!musicStarted) {
+                music.muted = false;
+                music.play().then(() => {
+                    musicStarted = true;
+                    playIcon.classList.remove("fa-play");
+                    playIcon.classList.add("fa-pause");
+                    albumArt.classList.add("rotating");
+                }).catch(err => {
+                    console.log("Playback blocked:", err);
+                    // Show a button to manually start music
+                    document.getElementById("manualPlay").style.display = "block";
+                });
+            }
+        }
+
+        // Scroll to section smoothly
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+            startMusic();
+        }
+
+        // Message functionality
+        function saveMessage() {
+            const msg = document.getElementById('praiseMsg').value.trim();
+            if (!msg) {
+                alert("Please write a message before sending 💌");
+                return;
+            }
+
+            const newMsgRef = push(ref(database, 'praiseMessages'));
+            set(newMsgRef, {
+                message: msg,
+                timestamp: Date.now()
+            }).then(() => {
+                alert("Your beautiful message has been sent! 💖");
+                document.getElementById('praiseMsg').value = '';
+            }).catch((err) => {
+                console.error("Error saving message:", err);
+                alert("Couldn't send your message. Please try again.");
+            });
+        }
+
+        function fetchMessages() {
+            const messagesRef = query(ref(database, 'praiseMessages'), orderByChild('timestamp'));
+            onChildAdded(messagesRef, (snapshot) => {
+                const msgData = snapshot.val();
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.innerHTML = `
+                    <p>${msgData.message}</p>
+                    <small>${formatDate(msgData.timestamp)}</small>
+                `;
+                document.getElementById('messages').prepend(messageElement);
+            });
+        }
+
+        function formatDate(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchMessages();
+
+            // Start music on any user interaction
+            document.addEventListener("scroll", startMusic, { once: true });
+            document.addEventListener("click", startMusic, { once: true });
+            document.addEventListener("touchstart", startMusic, { once: true });
+
+            // Show welcome message
+            setTimeout(() => {
+                alert("Happy International Best Friend Day, Praise! 💖\n\nThis is a special page just for you.");
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>
